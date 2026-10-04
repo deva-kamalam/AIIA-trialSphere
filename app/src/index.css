@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink: #0f2747;
+  --color-ink-2: #1e3a64;
+  --color-ink-3: #3a5580;
+  --color-canvas: #f5f7fa;
+  --color-line: #e3e8ef;
+  --color-line-2: #cfd7e2;
+  --color-muted: #5b6b80;
+  --color-faint: #8795a8;
+
+  --color-ok: #0e8a7e;
+  --color-ok-soft: #e3f4f1;
+  --color-warn: #a86b12;
+  --color-warn-soft: #fbf1df;
+  --color-crit: #b42318;
+  --color-crit-soft: #fdeceb;
+  --color-info: #2f6fb2;
+  --color-info-soft: #e7f0fa;
+
+  --radius-ctl: 6px;
+  --radius-panel: 8px;
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-info);
+    outline-offset: 2px;
+  }
+  .tnum { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.anim-rise { animation: rise 160ms ease-out; }
+.anim-fade { animation: fade 140ms ease-out; }
+
+/* Thin scrollbars for dense tables */
+.scroll-thin { scrollbar-width: thin; scrollbar-color: var(--color-line-2) transparent; }

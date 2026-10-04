@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.scratch/
+.playwright-mcp/
+*.log
+.DS_Store
+# Source proposal kept out of the public repo
+prompt.txt
